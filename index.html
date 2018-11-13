@@ -5,19 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Game</title>
+    <link rel="stylesheet" href="css/font.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <div class="main">
-        <div class="dataBlock"></div>
-        <button class="start"></button>
-        <button class="info"></button>
+        <header class="head">
+            <div class="dataBlock">
+                <div class="circle">
+                    <div class="star">1</div>
+                </div>
+                <div class="score">128</div>
+                <div class="life">
+                    <div class="life__heart life__heart-active"></div>
+                    <div class="life__heart life__heart-active"></div>
+                    <div class="life__heart"></div>
+                </div>
+            </div>
+            <div class="btn">
+                <button class="btn__start">
+                    <div class="btn__start-text">НАЧАТЬ</div>
+                </button> 
+                <button class="btn__info">?</button>
+            </div>
+        </header>
         <div class="gameField">
-            <div class="mink"></div>
-            <div class="mink"></div>
-            <div class="mink"></div>
-            <div class="mink"></div>
-            <div class="mink"></div>
+            <div class="gameField__wrap">
+                <div class="gameField__mink"></div>
+                <div class="gameField__mink gameField__mink-spec"></div>
+                <div class="gameField__mink"></div>
+                <div class="gameField__mink"></div>
+                <div class="gameField__mink"></div>
+            </div>
+        </div>
+        <div class="gameOver">
+            <div class="gameOver__title"></div>
         </div>
     </div>
 </body>
