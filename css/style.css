@@ -4,13 +4,16 @@ body {
     max-width: 1400px;
     min-width: 800px;
     font-family: 'Montserrat';
+    background: url(image/gameBack.png) no-repeat;
+    background-size: cover;
+
 }
 
 .main {
     display: flex;
     flex-direction: column;
+    width: 100%;
     height: 100vh;
-    background-image: url(image/gameBack.png);
 }
 
 .head {
@@ -18,7 +21,7 @@ body {
     justify-content: space-between;
 }
 
-.dataBlock {
+.data-block {
     position: relative;
     margin-top: 44px;
     margin-left: 72px;
@@ -143,27 +146,28 @@ body {
     color: #FFFFFF;
 }
 
-.gameField {
+.game-field {
     display: flex;
     justify-content: center;
+    width: 100%;
 }
-.gameField__wrap {
+.game-field__wrap {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
     width: 920px;
 }
-.gameField__mink {
+.game-field__mink {
     width: 225px;
     height: 167px;
     background: url(image/mink.png)no-repeat;
     margin-right: 40px;
 }
-.gameField__mink-spec {
+.game-field__mink-spec {
     margin-top: 60px;
 }
 
-.gameOver {
+.game-over {
     display: none;
     align-self: center;
     flex-direction: column;
@@ -175,7 +179,7 @@ body {
     margin: 10% 10% 10% 0;
 
 }
-.gameOver__title {
+.game-over__title {
     position: relative;
     top: 60px;
     max-width: 517px;
@@ -189,7 +193,7 @@ body {
     text-align: center;
     line-height: 96px;
 }
-.gameOver__main {
+.game-over__main {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -220,14 +224,14 @@ body {
     margin-top: -50px;
 
 }
-.main__scoreText {
+.main__score-text {
     width: 292px;
     height: 79px;
     font-size: 70px;
     text-align: center;
     margin-top: -50px;
 }
-.gameOver__btn {
+.game-over__btn {
     position: relative;
     top: -40px;
     width: 241px;
@@ -241,11 +245,11 @@ body {
     line-height: 35px;
     color: #FFFFFF;
 }
-.gameOver__btn:hover {
+.game-over__btn:hover {
     background-color: #FFC700;
 }
 
-.gameRules {
+.game-rules {
     display: none;
     align-self: center;
     flex-direction: column;
@@ -257,7 +261,7 @@ body {
     margin: 10% 10% 10% 0;
 
 }
-.gameRules__title {
+.game-rules__title {
     position: relative;
     top: 60px;
     max-width: 517px;
@@ -271,7 +275,7 @@ body {
     text-align: center;
     line-height: 96px;
 }
-.gameRules__main {
+.game-rules__main {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -287,10 +291,10 @@ body {
     padding-top: 50px;
 
 }
-.listRules {
+.list-rules {
     width: 550px;
 }
-.gameRules__btn {
+.game-rules__btn {
     position: relative;
     top: -40px;
     width: 241px;
@@ -304,6 +308,6 @@ body {
     line-height: 35px;
     color: #FFFFFF;
 }
-.gameRules__btn:hover {
+.game-rules__btn:hover {
     background-color: #FFC700;
 }
