@@ -157,6 +157,10 @@ body {
     flex-wrap: wrap;
     width: 920px;
 }
+.mouse {
+    background: url(image/mouse.svg) no-repeat;
+
+}
 .game-field__mink {
     width: 225px;
     height: 167px;
@@ -310,4 +314,9 @@ body {
 }
 .game-rules__btn:hover {
     background-color: #FFC700;
+}
+
+.emoji {
+    font-size: 130px;
+    text-align: center;
 }
