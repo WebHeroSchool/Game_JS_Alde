@@ -166,6 +166,8 @@ body {
     height: 167px;
     background: url(image/mink.png)no-repeat;
     margin-right: 40px;
+    text-align: center;
+
 }
 .game-field__mink-spec {
     margin-top: 60px;
@@ -318,5 +320,5 @@ body {
 
 .emoji {
     font-size: 130px;
-    text-align: center;
+    /* text-align: center; */
 }
