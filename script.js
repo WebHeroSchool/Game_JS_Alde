@@ -68,7 +68,7 @@ class game {
 }
 let newGame = new game();
 let start = document.querySelector('.btn__start');
-start.addEventListener('click', newGame.startGame());
+start.addEventListener('click', () => newGame.startGame());
 // newGame.startGame();
 
 
