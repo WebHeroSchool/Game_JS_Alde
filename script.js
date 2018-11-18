@@ -7,7 +7,7 @@ class game {
         
         this.emojis = ['🐭', '🐼', '🐻', '🦊', '🐱', '🐱', '🐮', '🦁', '🐽', '🐨', '🐨', '🐰', '🐯'];
         
-        let minks = document.querySelectorAll('.game-field__mink');
+        this.minks = document.querySelectorAll('.game-field__mink');
     }
     getRandomEmoji () {
         let rand = Math.floor(Math.random() * 100);
@@ -35,6 +35,9 @@ class game {
         else{        
             this.live--;
         }
+        if(this.live === 0){
+            clearInterval(this.interval);
+        }
         
     };
     setScore(){
@@ -51,30 +54,31 @@ class game {
         this.setScore();
         this.deleteElement();
         let span = document.createElement('span');
-        let rand = Math.floor(Math.random() * minks.length);
+        let rand = Math.floor(Math.random() * this.minks.length);
 
         span.classList.add('emoji');
         span.innerHTML = this.getRandomEmoji();
         console.log(span.innerHTML);
         span.addEventListener('click', () => this.getClick());
-        minks[rand].appendChild(span);
+        this.minks[rand].appendChild(span);
         console.log(this.isMouse);
         console.log(this.score, this.live);
 
     };
     startGame(){
         this.isRunning = true;
-        while(this.live > 0){
-            setTimeout(setInterval( () => this.createElement(),2000),0);
-        }
-        clearInterval();
+        this.interval = setInterval( () => this.createElement(),2000);
+        
     };
    
 }
-let newGame = new game();
+// let newGame = new game(); 
 let start = document.querySelector('.btn__start');
-start.addEventListener('click', () => newGame.startGame());
-// newGame.startGame();
+start.addEventListener('click', () => { let newGame = new game();
+                                        newGame.startGame();});
+
+
+
 
 
 
