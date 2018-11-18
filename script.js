@@ -4,8 +4,10 @@ class game {
         this.live = 3;
         this.isRunning = false;
         this.isMouse = false;
-
+        
         this.emojis = ['🐭', '🐼', '🐻', '🦊', '🐱', '🐱', '🐮', '🦁', '🐽', '🐨', '🐨', '🐰', '🐯'];
+        
+        let minks = document.querySelectorAll('.game-field__mink');
     }
     getRandomEmoji () {
         let rand = Math.floor(Math.random() * 100);
@@ -18,7 +20,7 @@ class game {
 
         return this.emojis[rand2];
         }
-        else{
+        else {
             rand2 = Math.floor(Math.random() * this.emojis.length);
             if(this.emojis[rand2] === '🐭')
                 this.isMouse = true;
@@ -27,11 +29,12 @@ class game {
         }
     }
     getClick(){
-        if(this.isMouse)
+        if(this.isMouse){
             this.score += 10;
-        
-        if(!this.isMouse)
+        }
+        else{        
             this.live--;
+        }
         
     };
     setScore(){
@@ -47,7 +50,6 @@ class game {
     createElement(){
         this.setScore();
         this.deleteElement();
-        let minks = document.querySelectorAll('.game-field__mink');
         let span = document.createElement('span');
         let rand = Math.floor(Math.random() * minks.length);
 
@@ -62,9 +64,12 @@ class game {
     };
     startGame(){
         this.isRunning = true;
-        let interval = setInterval( () => this.createElement(),2000);
-
+        while(this.live > 0){
+            setTimeout(setInterval( () => this.createElement(),2000),0);
+        }
+        clearInterval();
     };
+   
 }
 let newGame = new game();
 let start = document.querySelector('.btn__start');
