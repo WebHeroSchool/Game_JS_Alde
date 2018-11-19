@@ -157,11 +157,17 @@ body {
     flex-wrap: wrap;
     width: 920px;
 }
+.mouse {
+    background: url(image/mouse.svg) no-repeat;
+
+}
 .game-field__mink {
     width: 225px;
     height: 167px;
     background: url(image/mink.png)no-repeat;
     margin-right: 40px;
+    text-align: center;
+
 }
 .game-field__mink-spec {
     margin-top: 60px;
@@ -310,4 +316,39 @@ body {
 }
 .game-rules__btn:hover {
     background-color: #FFC700;
+}
+@keyframes create {
+    0%{
+        transform: translateY(10px);
+    }
+    100%{
+        transform: translateY(0px);
+    }
+}
+.emoji {
+    font-size: 130px;
+    animation: create 3s linear;
+}
+.active {
+    display: flex;
+}
+
+
+@keyframes levelUp {
+    0%{
+        transform: rotateY(0deg) translateY(0px);
+    }
+    25%{
+        transform: rotateY(0deg) translateY(-50px)
+    }
+    50%{
+        transform: rotateY(360deg) translateY(-50px);
+    }
+    100%{
+        transform: translateY(0px);
+    }
+}
+
+.level-up {
+    animation: levelUp 3s ease;
 }

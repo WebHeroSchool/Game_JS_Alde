@@ -1,16 +1,16 @@
 @media screen and (max-width: 1110px) {
-    .gameOver {
+    .game-over {
         margin-top: 15%;
     }
-    .gameRules {
+    .game-rules {
         margin-top: 15%;
     }
 }
 @media screen and (max-width: 1000px) {
-    .gameOver {
+    .game-over {
         margin-top: 20%;
     }
-    .gameRules {
+    .game-rules {
         margin-top: 20%;
     }
 }
@@ -22,18 +22,18 @@
 }
 
 @media screen and (max-width:650px) {
-    .gameOver {
+    .game-over {
         margin-top: 30%;
     }
-    .gameRules {
+    .game-rules {
         margin-top: 30%;
     }
 }
 @media screen and (max-width:400px) {
-    .gameOver {
+    .game-over {
         margin-top: 45%;
     }
-    .gameRules {
+    .game-rules {
         margin-top: 45%;
     }
 }
