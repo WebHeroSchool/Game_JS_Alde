@@ -102,7 +102,7 @@ class game {
     }
     createElement(){
         // this.setScore();
-        // this.deleteElement();
+        this.deleteElement();
         this.span = document.createElement('span');
         let rand = Math.floor(Math.random() * this.minks.length);
 
