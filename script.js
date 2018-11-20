@@ -78,6 +78,7 @@ class game {
     getClick(){
         if(this.isMouse){
             this.totalScore += 10;
+            this.setSpeedLevel();
         }
         else{        
             this.live--;
@@ -88,7 +89,6 @@ class game {
         }
         this.deleteElement();
         this.setScore();
-        this.setSpeedLevel();
 
     };
     setScore(){
