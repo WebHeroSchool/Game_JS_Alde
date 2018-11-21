@@ -8,12 +8,48 @@ class game {
         this.createInterval = 2000;
         this.span = '';
         
-        this.emojis = ['🐭', '🐼', '🐻', '🦊', '🐱', '🐱', '🐮', '🦁', '🐽', '🐨', '🐨', '🐰', '🐯'];
+        this.sumAnimals = {
+            mouse: 5,
+            panda: 1,
+            bear: 1,
+            fox: 1,
+            cat: 1,
+            cow: 1,
+            lion: 1,
+            pig: 1,
+            koala: 1,
+            hare: 1,
+            tiger: 1
+        };
+        this.animals = {
+            mouse: '🐭',
+            panda: '🐼',
+            bear: '🐻',
+            fox: '🦊',
+            cat: '🐱',
+            cow: '🐮',
+            lion: '🦁',
+            pig: '🐽',
+            koala: '🐨',
+            hare: '🐰',
+            tiger: '🐯'
+        };
+        this.emojis = [];
         
         this.speed = document.querySelector('.star');
         this.score = document.querySelector('.score');
         this.heart = document.querySelectorAll('.life__heart');
         this.minks = document.querySelectorAll('.game-field__mink');
+        this.gameOver = document.querySelector('.game-over');
+        this.total = document.querySelector('.main__score');
+        this.gameOverBtn = document.querySelector('.game-over__btn');
+    }
+    createEmojiArr (){
+        for (const key in this.sumAnimals) {
+            for(let i = this.sumAnimals[key]; i > 0; i--){
+                this.emojis.push(this.animals[key]);
+            }
+        }
     }
     setSpeedLevel () {
         switch(this.totalScore){
@@ -47,33 +83,17 @@ class game {
         }
     }
     setLive(){
-        let j = this.live - 1;
-        for(let i = 2; i > -1; i--){
-            this.heart[i].classList.remove('life__heart-active');
-        }
-        for(;j > -1; j--){
-            this.heart[j].classList.add('life__heart-active');
-        }
+        this.heart.forEach((item) => item.classList.add('life__heart-active'))
+    }
+    checkLive() {
+        this.heart[this.live].classList.remove('life__heart-active');
     }
     getRandomEmoji () {
-        let rand = Math.floor(Math.random() * 100);
-        let rand2;
-        if (rand <= 30){
-            rand2 = Math.floor(Math.random() * 2);
-            if(this.emojis[rand2] === '🐭')
-                this.isMouse = true;
+        let rand = Math.floor(Math.random() * this.emojis.length);
+        if(this.emojis[rand] === '🐭')
+            this.isMouse = true;
 
-        return this.emojis[rand2];
-        }
-        else {
-            rand2 = Math.floor(Math.random() * this.emojis.length);
-            if(this.emojis[rand2] === '🐭')
-                this.isMouse = true;
-
-        return this.emojis[rand2];
-        }
-    //     this.isMouse = true;
-    // return this.emojis[0];
+        return this.emojis[rand];
     }
     getClick(){
         if(this.isMouse){
@@ -82,14 +102,14 @@ class game {
         }
         else{        
             this.live--;
-            this.setLive();
+            this.checkLive();
         }
         if(this.live === 0){
             clearInterval(this.interval);
+            this.endGame();
         }
         this.deleteElement();
         this.setScore();
-
     };
     setScore(){
         this.score.innerHTML = this.totalScore;
@@ -101,32 +121,31 @@ class game {
         this.isMouse = false;
     }
     createElement(){
-        // this.setScore();
         this.deleteElement();
         this.span = document.createElement('span');
         let rand = Math.floor(Math.random() * this.minks.length);
-
         this.span.classList.add('emoji');
         this.span.innerHTML = this.getRandomEmoji();
-        // console.log(this.span.innerHTML);
         this.minks[rand].appendChild(this.span);
         this.span.addEventListener('click', () => this.getClick() ,{once: true});
-        // console.log(this.isMouse);
-        // console.log(this.totalScore, this.live);
-
     };
     startGame(){
         this.isRunning = true;
+        this.createEmojiArr();
         this.setSpeedLevel();
         this.setScore();
         this.setLive();
         this.interval = setInterval( () => this.createElement(),this.createInterval);
-        
     };
+    endGame() {
+        this.total.innerHTML = this.totalScore;
+        this.gameOverBtn.addEventListener('click', () => {this.gameOver.classList.remove('active')});
+        this.gameOver.classList.add('active');
+
+    }
    
    
 }
-// let newGame = new game();
 let rules = document.querySelector('.btn__info');
 let ruleOk = document.querySelector('.game-rules__btn');
 let ruleUp = document.querySelector('.game-rules');
